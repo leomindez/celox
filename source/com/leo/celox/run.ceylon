@@ -17,6 +17,9 @@ import java.lang {
 }
 
 import ceylon.language { String }
+import java.util {
+    Scanner
+}
 
 shared void run(){
   startCommands(*process.arguments);
@@ -33,7 +36,13 @@ shared void startCommands(String* arguments){
     }
 }
 
-void start(String|JString string) {
+void start(String|JString source) {
+    if(source is JString) {
+        value scanner = Scanner(source);
+        value tokens = scanner.scanTokens();
+
+        tokens.foreach(token => print(token);)
+    }
 
 }
 
@@ -41,6 +50,10 @@ void runFile(String? path) {
     value fileBytes = Files.readAllBytes(Paths.get(path));
     value fileString = JString(fileBytes, Charset.defaultCharset());
     start(fileString);
+    if(ErrorManager.hadError){
+        System.exit(65);
+    }
+
 }
 
 void runPrompt(){
@@ -50,5 +63,6 @@ void runPrompt(){
     while (true){
         print("> ");
         start(reader.readLine());
+        ErrorManager.hadError = false;
     }
 }
