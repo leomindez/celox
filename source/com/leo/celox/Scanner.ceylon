@@ -1,5 +1,6 @@
 import ceylon.collection {
-    LinkedList
+    LinkedList,
+    HashMap
 }
 
 import ceylon.language { Float {
@@ -13,6 +14,24 @@ shared class Scanner(String source) {
     variable Integer current = 0;
     variable Integer line = 1;
 
+    value keywords = HashMap{
+        "and" -> tokenType.keywordAnd,
+        "class" -> tokenType.keywordClass,
+        "else" -> tokenType.keywordElse,
+        "false" -> tokenType.keywordFalse,
+        "for" -> tokenType.keywordFalse,
+        "fun" -> tokenType.keywordFun,
+        "if" -> tokenType.keywordIf,
+        "nil" -> tokenType.keywordNil,
+        "or" -> tokenType.keywordOr,
+        "print" -> tokenType.keywordPrint,
+        "return" -> tokenType.keywordReturn,
+        "super" -> tokenType.keywordSuper,
+        "this" -> tokenType.keywordThis,
+        "true" -> tokenType.keywordTrue,
+        "var" -> tokenType.keywordVar,
+        "while" -> tokenType.keywordWhile
+    };
 
     shared LinkedList<Token> scanTokens() {
         while (!isAtEnd()) {
@@ -23,6 +42,7 @@ shared class Scanner(String source) {
         tokens.add(Token(tokenType.keywordEof, "", line));
         return tokens;
     }
+
 
     void scanToken() {
         value character = advance();
@@ -87,6 +107,8 @@ shared class Scanner(String source) {
         else {
             if(isDigit(character)){
                 number();
+            }else if(isAlpha(character)){
+                identifier();
             }else {
                 ErrorManager.error(line, "Unexpected character");
             }
@@ -120,9 +142,11 @@ shared class Scanner(String source) {
         return source.get(current - 1);
     }
 
-    void addToken(String tokenType, Object? literal = null) {
-        value text = source.substring(start, current);
-        tokens.add(Token(tokenType, text, line));
+    void addToken(String? tokenType, Object? literal = null) {
+        if(exists tokenType) {
+            value text = source.substring(start, current);
+            tokens.add(Token(tokenType, text, line));
+        }
     }
 
     Boolean match(Character expected) {
@@ -187,4 +211,30 @@ shared class Scanner(String source) {
         
         addToken(tokenType.number, parse(source.substring(start, current)));
     }
+
+    Boolean isAlpha(Character? character) {
+        if(exists character){
+            return (character >= 'a' && character <= 'z' ) ||
+            ( character >= 'A' && character <= 'Z')
+            || isSameCharacter(character, '_');
+        }else{
+            return false;
+        }
+    }
+
+    Boolean isAlphaNumeric(Character? character) => isAlpha(character) ||isDigit(character) ;
+
+    void identifier() {
+        while(isAlphaNumeric(peek())) {
+            advance();
+        }
+        value text = source.substring(start, current);
+        variable String? type = keywords.get(text);
+        if(!exists string = type){
+            addToken(tokenType.identifier);
+        }else{
+            addToken(type);
+        }
+    }
+
 }

@@ -35,7 +35,7 @@ shared void startCommands(String* arguments){
 
 void start(String source) {
         value scanner = Scanner(source);
-        value tokens = scanner.scanTokens();
+
 }
 
 void runFile(String? path) {
