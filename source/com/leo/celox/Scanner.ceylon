@@ -3,9 +3,11 @@ import ceylon.collection {
     HashMap
 }
 
-import ceylon.language { Float {
-    parse
-} }
+import ceylon.language {
+    Float {
+        parse
+    }
+}
 
 shared class Scanner(String source) {
 
@@ -14,23 +16,23 @@ shared class Scanner(String source) {
     variable Integer current = 0;
     variable Integer line = 1;
 
-    value keywords = HashMap{
-        "and" -> tokenType.keywordAnd,
-        "class" -> tokenType.keywordClass,
-        "else" -> tokenType.keywordElse,
-        "false" -> tokenType.keywordFalse,
-        "for" -> tokenType.keywordFalse,
-        "fun" -> tokenType.keywordFun,
-        "if" -> tokenType.keywordIf,
-        "nil" -> tokenType.keywordNil,
-        "or" -> tokenType.keywordOr,
-        "print" -> tokenType.keywordPrint,
-        "return" -> tokenType.keywordReturn,
-        "super" -> tokenType.keywordSuper,
-        "this" -> tokenType.keywordThis,
-        "true" -> tokenType.keywordTrue,
-        "var" -> tokenType.keywordVar,
-        "while" -> tokenType.keywordWhile
+    value keywords = HashMap {
+        "and"->tokenType.keywordAnd,
+        "class"->tokenType.keywordClass,
+        "else"->tokenType.keywordElse,
+        "false"->tokenType.keywordFalse,
+        "for"->tokenType.keywordFalse,
+        "fun"->tokenType.keywordFun,
+        "if"->tokenType.keywordIf,
+        "nil"->tokenType.keywordNil,
+        "or"->tokenType.keywordOr,
+        "print"->tokenType.keywordPrint,
+        "return"->tokenType.keywordReturn,
+        "super"->tokenType.keywordSuper,
+        "this"->tokenType.keywordThis,
+        "true"->tokenType.keywordTrue,
+        "var"->tokenType.keywordVar,
+        "while"->tokenType.keywordWhile
     };
 
     shared LinkedList<Token> scanTokens() {
@@ -101,28 +103,28 @@ shared class Scanner(String source) {
         case ('\n') {
             line++;
         }
-        case('"'){
+        case ('"') {
             string();
         }
         else {
-            if(isDigit(character)){
+            if (isDigit(character)) {
                 number();
-            }else if(isAlpha(character)){
+            } else if (isAlpha(character)) {
                 identifier();
-            }else {
+            } else {
                 ErrorManager.error(line, "Unexpected character");
             }
         }
     }
 
-    void string(){
-        while(!isSameCharacter(peek(), '"') && !isAtEnd()){
-            if(isSameCharacter(peek(), '\n')) {
+    void string() {
+        while (!isSameCharacter(peek(), '"')&& !isAtEnd()) {
+            if (isSameCharacter(peek(), '\n')) {
                 line++;
             }
             advance();
 
-            if(isAtEnd()){
+            if (isAtEnd()) {
                 ErrorManager.error(line, "Unterminated string");
                 return;
             }
@@ -143,7 +145,7 @@ shared class Scanner(String source) {
     }
 
     void addToken(String? tokenType, Object? literal = null) {
-        if(exists tokenType) {
+        if (exists tokenType) {
             value text = source.substring(start, current);
             tokens.add(Token(tokenType, text, line));
         }
@@ -170,8 +172,8 @@ shared class Scanner(String source) {
         return source.get(current);
     }
 
-    Character? peekNext(){
-        if(current + 1 >= source.size ) {
+    Character? peekNext() {
+        if (current + 1>=source.size) {
             return '\0';
         }
         return source.get(current + 1);
@@ -187,52 +189,50 @@ shared class Scanner(String source) {
         }
     }
 
-    Boolean isDigit(Character? character){
-        if(exists character){
-        return character >= '0' && character <= '9';
+    Boolean isDigit(Character? character) {
+        if (exists character) {
+            return character>='0' && character<='9';
         }
         return false;
     }
 
-    void number(){
-        Float d = 10.99387838740;
-
-        while(isDigit(peek())){
+    void number() {
+        while (isDigit(peek())) {
             advance();
         }
-        
-        if(isSameCharacter(peek(), '.') && isDigit(peekNext())){
+
+        if (isSameCharacter(peek(), '.') &&isDigit(peekNext())) {
             advance();
 
-            while(isDigit(peek())){
+            while (isDigit(peek())) {
                 advance();
             }
         }
-        
+
         addToken(tokenType.number, parse(source.substring(start, current)));
     }
 
     Boolean isAlpha(Character? character) {
-        if(exists character){
-            return (character >= 'a' && character <= 'z' ) ||
-            ( character >= 'A' && character <= 'Z')
-            || isSameCharacter(character, '_');
-        }else{
+        if (exists character) {
+            return (character>='a' && character<='z') ||
+            (character>='A' && character<='Z')
+            ||isSameCharacter(character, '_');
+        } else {
             return false;
         }
     }
 
-    Boolean isAlphaNumeric(Character? character) => isAlpha(character) ||isDigit(character) ;
+    Boolean isAlphaNumeric(Character? character) => isAlpha(character) ||isDigit(character);
 
     void identifier() {
-        while(isAlphaNumeric(peek())) {
+        while (isAlphaNumeric(peek())) {
             advance();
         }
         value text = source.substring(start, current);
         variable String? type = keywords.get(text);
-        if(!exists string = type){
+        if (!exists string = type) {
             addToken(tokenType.identifier);
-        }else{
+        } else {
             addToken(type);
         }
     }
