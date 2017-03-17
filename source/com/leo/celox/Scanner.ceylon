@@ -229,8 +229,8 @@ shared class Scanner(String source) {
             advance();
         }
         value text = source.substring(start, current);
-        variable String? type = keywords.get(text);
-        if (!exists string = type) {
+        value type = keywords.get(text);
+        if (!exists type) {
             addToken(tokenType.identifier);
         } else {
             addToken(type);
