@@ -21,8 +21,7 @@ shared class Scanner(String source) {
         return tokens;
     }
 
-    suppressWarnings ("disjointEquals", "expressionTypeCallable")
-     void scanToken() {
+    void scanToken() {
         value character = advance();
         switch (character)
         case ('(') {
@@ -67,16 +66,15 @@ shared class Scanner(String source) {
         }
         case ('/') {
             if (match('/')) {
-                while (peek()?.compare('\n')?.equals == false && !isAtEnd()) {
+                while (comparableCharacter(peek(), '\n') && !isAtEnd()) {
                     advance();
                 }
             } else {
                 addToken(tokenType.slash);
             }
         }
-        case(' '| '\r'| '\t'){
+        case (' '|'\r'|'\t') {
         }
-
         case ('\n') {
             line++;
         }
@@ -92,19 +90,18 @@ shared class Scanner(String source) {
         return source.get(current - 1);
     }
 
-     void addToken(String tokenType, Object? literal = null) {
+    void addToken(String tokenType, Object? literal = null) {
         value text = source.substring(start, current);
         tokens.add(Token(tokenType, text, line));
     }
 
-    suppressWarnings ("disjointEquals", "expressionTypeCallable")
     Boolean match(Character expected) {
 
         Character? char = source.get(current);
         if (isAtEnd()) {
             return false;
         }
-        if (char?.compare(expected)?.equals == true) {
+        if (comparableCharacter(char, expected)) {
             return false;
         }
 
@@ -117,5 +114,15 @@ shared class Scanner(String source) {
             return '\0';
         }
         return source.get(current);
+    }
+
+    Boolean comparableCharacter(Character? target, Character comparable) {
+        switch (target?.compare(comparable))
+        case (equal) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

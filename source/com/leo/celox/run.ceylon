@@ -12,13 +12,10 @@ import java.io {
 import java.lang {
     System {
         \iin
-    },
-    JString = String
+    }
 }
-
-import ceylon.language { String }
-import java.util {
-    Scanner
+import ceylon.buffer.charset {
+    utf8
 }
 
 shared void run(){
@@ -36,19 +33,14 @@ shared void startCommands(String* arguments){
     }
 }
 
-void start(String|JString source) {
-    if(source is JString) {
+void start(String source) {
         value scanner = Scanner(source);
         value tokens = scanner.scanTokens();
-
-        tokens.foreach(token => print(token);)
-    }
-
 }
 
 void runFile(String? path) {
-    value fileBytes = Files.readAllBytes(Paths.get(path));
-    value fileString = JString(fileBytes, Charset.defaultCharset());
+    value fileBytes = Files.readAllBytes(Paths.get(path)).byteArray;
+    value fileString = utf8.decode(fileBytes);
     start(fileString);
     if(ErrorManager.hadError){
         System.exit(65);
