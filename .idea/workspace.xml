@@ -44,8 +44,8 @@
       <file leaf-file-name="module.ceylon" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/com/leo/celox/module.ceylon">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -56,7 +56,7 @@
       <file leaf-file-name="ErrorManager.ceylon" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/com/leo/celox/ErrorManager.ceylon">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="170">
               <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="35" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -68,7 +68,7 @@
       <file leaf-file-name="Token.ceylon" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/com/leo/celox/Token.ceylon">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="-422">
               <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
@@ -78,21 +78,11 @@
       <file leaf-file-name="Scanner.ceylon" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/com/leo/celox/Scanner.ceylon">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="-116">
+              <caret line="154" column="0" lean-forward="true" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#91#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Character.ceylon" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_PLUGINS_DIR$/CeylonIDEA/classes/embeddedDist/repo/ceylon/language/1.3.2/ceylon.language-1.3.2.src!/ceylon/language/Character.ceylon">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="144" column="36" lean-forward="false" selection-start-line="144" selection-start-column="36" selection-end-line="144" selection-end-column="36" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -129,8 +119,8 @@
       <list>
         <option value="$PROJECT_DIR$/resource/com/leo/celox/package.ceylon" />
         <option value="$PROJECT_DIR$/source/com/leo/celox/package.ceylon" />
-        <option value="$PROJECT_DIR$/source/com/leo/celox/module.ceylon" />
         <option value="$PROJECT_DIR$/source/com/leo/celox/run.ceylon" />
+        <option value="$PROJECT_DIR$/source/com/leo/celox/module.ceylon" />
         <option value="$PROJECT_DIR$/source/com/leo/celox/Scanner.ceylon" />
       </list>
     </option>
@@ -403,6 +393,14 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="MixExUnitRunConfigurationType" factoryName="Elixir Mix ExUnit" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="passParentEnvs" value="false" />
+      <option name="programParameters" />
+      <option name="workingDirectory" value="" />
+      <module />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -514,29 +512,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/nio/file/Files.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52632">
-          <caret line="3096" column="26" lean-forward="false" selection-start-line="3096" selection-start-column="26" selection-end-line="3096" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#169439#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#2577#2578#0" expanded="false" />
-            <element signature="e#2631#2632#0" expanded="false" />
-            <element signature="e#22197#22198#0" expanded="false" />
-            <element signature="e#22272#22273#0" expanded="false" />
-            <element signature="e#70449#70450#0" expanded="false" />
-            <element signature="e#70543#70544#0" expanded="false" />
-            <element signature="e#111862#111863#0" expanded="false" />
-            <element signature="e#111920#111921#0" expanded="false" />
-            <element signature="e#113425#113426#0" expanded="false" />
-            <element signature="e#113484#113485#0" expanded="false" />
-            <element signature="e#115258#115259#0" expanded="false" />
-            <element signature="e#115319#115320#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/com/leo/celox/module.ceylon">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -570,7 +545,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#91#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -655,7 +630,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#91#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -794,24 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/leo/celox/Token.ceylon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/leo/celox/ErrorManager.ceylon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/nio/file/Paths.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
@@ -824,13 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
           <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_PLUGINS_DIR$/CeylonIDEA/classes/embeddedDist/repo/ceylon/language/1.3.2/ceylon.language-1.3.2.src!/ceylon/language/Comparison.ceylon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -923,16 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/leo/celox/module.ceylon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="44" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/com/leo/celox/run.ceylon">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -946,17 +886,69 @@
     <entry file="jar://$APPLICATION_PLUGINS_DIR$/CeylonIDEA/classes/embeddedDist/repo/ceylon/language/1.3.2/ceylon.language-1.3.2.src!/ceylon/language/Character.ceylon">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
-          <caret line="144" column="36" lean-forward="false" selection-start-line="144" selection-start-column="36" selection-end-line="144" selection-end-column="36" />
+          <caret line="144" column="29" lean-forward="false" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/CeylonIDEA/classes/embeddedDist/repo/ceylon/language/1.3.2/ceylon.language-1.3.2.src!/ceylon/language/Comparison.ceylon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/CeylonIDEA/classes/embeddedDist/repo/ceylon/language/1.3.2/ceylon.language-1.3.2.src!/ceylon/language/Float.ceylon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="41" column="41" lean-forward="false" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/leo/celox/module.ceylon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_PLUGINS_DIR$/CeylonIDEA/classes/embeddedDist/repo/ceylon/language/1.3.2/ceylon.language-1.3.2.src!/ceylon/language/parseFloat.ceylon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/leo/celox/Token.ceylon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-422">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/leo/celox/ErrorManager.ceylon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/com/leo/celox/Scanner.ceylon">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="-116">
+          <caret line="154" column="0" lean-forward="true" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#91#0" expanded="true" />
           </folding>
         </state>
       </provider>

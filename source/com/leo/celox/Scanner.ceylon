@@ -2,6 +2,9 @@ import ceylon.collection {
     LinkedList
 }
 
+import ceylon.language { Float {
+    parse
+} }
 
 shared class Scanner(String source) {
 
@@ -66,7 +69,7 @@ shared class Scanner(String source) {
         }
         case ('/') {
             if (match('/')) {
-                while (comparableCharacter(peek(), '\n') && !isAtEnd()) {
+                while (isSameCharacter(peek(), '\n') && !isAtEnd()) {
                     advance();
                 }
             } else {
@@ -78,8 +81,35 @@ shared class Scanner(String source) {
         case ('\n') {
             line++;
         }
+        case('"'){
+            string();
+        }
         else {
-            ErrorManager.error(line, "Unexpected character");
+            if(isDigit(character)){
+                number();
+            }else {
+                ErrorManager.error(line, "Unexpected character");
+            }
+        }
+    }
+
+    void string(){
+        while(!isSameCharacter(peek(), '"') && !isAtEnd()){
+            if(isSameCharacter(peek(), '\n')) {
+                line++;
+            }
+            advance();
+
+            if(isAtEnd()){
+                ErrorManager.error(line, "Unterminated string");
+                return;
+            }
+
+            advance();
+
+            value stringValue = source.substring(start + 1, current - 1);
+            addToken(tokenType.string, stringValue);
+
         }
     }
 
@@ -101,7 +131,7 @@ shared class Scanner(String source) {
         if (isAtEnd()) {
             return false;
         }
-        if (comparableCharacter(char, expected)) {
+        if (isSameCharacter(char, expected)) {
             return false;
         }
 
@@ -116,7 +146,14 @@ shared class Scanner(String source) {
         return source.get(current);
     }
 
-    Boolean comparableCharacter(Character? target, Character comparable) {
+    Character? peekNext(){
+        if(current + 1 >= source.size ) {
+            return '\0';
+        }
+        return source.get(current + 1);
+    }
+
+    Boolean isSameCharacter(Character? target, Character comparable) {
         switch (target?.compare(comparable))
         case (equal) {
             return true;
@@ -124,5 +161,30 @@ shared class Scanner(String source) {
         else {
             return false;
         }
+    }
+
+    Boolean isDigit(Character? character){
+        if(exists character){
+        return character >= '0' && character <= '9';
+        }
+        return false;
+    }
+
+    void number(){
+        Float d = 10.99387838740;
+
+        while(isDigit(peek())){
+            advance();
+        }
+        
+        if(isSameCharacter(peek(), '.') && isDigit(peekNext())){
+            advance();
+
+            while(isDigit(peek())){
+                advance();
+            }
+        }
+        
+        addToken(tokenType.number, parse(source.substring(start, current)));
     }
 }
