@@ -123,7 +123,7 @@ shared class Scanner(String source) {
                 line++;
             }
             advance();
-
+        }
             if (isAtEnd()) {
                 ErrorManager.error(line, "Unterminated string");
                 return;
@@ -134,7 +134,6 @@ shared class Scanner(String source) {
             value stringValue = source.substring(start + 1, current - 1);
             addToken(tokenType.string, stringValue);
 
-        }
     }
 
     Boolean isAtEnd() => current >= source.size;
