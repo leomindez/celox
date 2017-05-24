@@ -91,7 +91,7 @@ shared class Scanner(String source) {
         }
         case ('/') {
             if (match('/')) {
-                while (isSameCharacter(peek(), '\n') && !isAtEnd()) {
+                while (!isSameCharacter(peek(), '\n') && !isAtEnd()) {
                     advance();
                 }
             } else {
