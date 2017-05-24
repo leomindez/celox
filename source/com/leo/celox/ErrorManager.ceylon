@@ -8,7 +8,7 @@ shared class ErrorManager {
 
 
     shared static void report(Integer line, String where, String message) {
-        System.err.println("[line `line`] Error ``where``: ``message``");
+        System.err.println("[line ``line``] Error ``where``: ``message``");
         hadError = true;
     }
 
