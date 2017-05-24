@@ -2,9 +2,7 @@ import java.nio.file {
     Files,
     Paths
 }
-import java.nio.charset {
-    Charset
-}
+
 import java.io {
     InputStreamReader,
     BufferedReader
@@ -25,8 +23,8 @@ shared void run(){
 shared void startCommands(String* arguments){
     value argSize = arguments.size;
     if(argSize > 1){
-        print("Usage: celox [script]");
-    } else if(argSize == 0){
+        print("Usage: Celox [script]");
+    } else if(argSize == 1){
         runFile(arguments.get(0));
     }else {
         runPrompt();
@@ -34,8 +32,8 @@ shared void startCommands(String* arguments){
 }
 
 void start(String source) {
-        value scanner = Scanner(source);
-
+    value scanner = Scanner(source);
+    scanner.scanTokens().each((step) => print(step));
 }
 
 void runFile(String? path) {
@@ -53,6 +51,7 @@ void runPrompt(){
     value reader = BufferedReader(inputStream);
 
     while (true){
+        print("Celox Shell V0.1");
         print("> ");
         start(reader.readLine());
         ErrorManager.hadError = false;
