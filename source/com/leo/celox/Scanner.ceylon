@@ -132,7 +132,7 @@ shared class Scanner(String source) {
             advance();
 
             value stringValue = source.substring(start + 1, current - 1);
-            addToken(tokenType.string, stringValue);
+            addToken(tokenType.literalString, stringValue);
 
     }
 
