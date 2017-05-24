@@ -15,7 +15,7 @@ shared object tokenType {
     shared String  plus = "PLUS";
     shared String  semicolon = "SEMICOLON";
     shared String  slash = "SLASH";
-    shared String start = "START";
+    shared String star = "STAR";
 
     // One or Two Characters Token
 
