@@ -21,7 +21,7 @@ shared class Scanner(String source) {
         "class"->tokenType.keywordClass,
         "else"->tokenType.keywordElse,
         "false"->tokenType.keywordFalse,
-        "for"->tokenType.keywordFalse,
+        "for"->tokenType.keywordFor,
         "fun"->tokenType.keywordFun,
         "if"->tokenType.keywordIf,
         "nil"->tokenType.keywordNil,
@@ -77,7 +77,7 @@ shared class Scanner(String source) {
             addToken(tokenType.semicolon);
         }
         case ('*') {
-            addToken(tokenType.start);
+            addToken(tokenType.star);
         }
         case ('!') {
             addToken(if (match('=')) then tokenType.bang_equal else tokenType.bang);
@@ -137,7 +137,7 @@ shared class Scanner(String source) {
         }
     }
 
-    Boolean isAtEnd() => current>=source.size;
+    Boolean isAtEnd() => current >= source.size;
 
     Character? advance() {
         current++;
@@ -147,7 +147,7 @@ shared class Scanner(String source) {
     void addToken(String? tokenType, Object? literal = null) {
         if (exists tokenType) {
             value text = source.substring(start, current);
-            tokens.add(Token(tokenType, text, line));
+            tokens.add(Token(tokenType, text, line,literal));
         }
     }
 
@@ -157,7 +157,7 @@ shared class Scanner(String source) {
         if (isAtEnd()) {
             return false;
         }
-        if (isSameCharacter(char, expected)) {
+        if (!isSameCharacter(char, expected)) {
             return false;
         }
 
