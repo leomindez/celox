@@ -91,7 +91,7 @@ shared class Scanner(String source) {
         }
         case ('/') {
             if (match('/')) {
-                while (!isSameCharacter(peek(), '\n') && !isAtEnd()) {
+                while (!isSameCharacter(peek(), '\n')&& !isAtEnd()) {
                     advance();
                 }
             } else {
@@ -124,19 +124,19 @@ shared class Scanner(String source) {
             }
             advance();
         }
-            if (isAtEnd()) {
-                ErrorManager.error(line, "Unterminated string");
-                return;
-            }
+        if (isAtEnd()) {
+            ErrorManager.error(line, "Unterminated string");
+            return;
+        }
 
-            advance();
+        advance();
 
-            value stringValue = source.substring(start + 1, current - 1);
-            addToken(tokenType.literalString, stringValue);
+        value stringValue = source.substring(start + 1, current - 1);
+        addToken(tokenType.literalString, stringValue);
 
     }
 
-    Boolean isAtEnd() => current >= source.size;
+    Boolean isAtEnd() => current>=source.size;
 
     Character? advance() {
         current++;
@@ -146,7 +146,7 @@ shared class Scanner(String source) {
     void addToken(String? tokenType, Object? literal = null) {
         if (exists tokenType) {
             value text = source.substring(start, current);
-            tokens.add(Token(tokenType, text, line,literal));
+            tokens.add(Token(tokenType, text, line, literal));
         }
     }
 

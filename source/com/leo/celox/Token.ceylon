@@ -1,20 +1,19 @@
-
-shared class Token(String type, String lexeme,Integer line,Object? literal = null) {
+shared class Token(String type, String lexeme, Integer line, Object? literal = null) {
     shared actual String string => "Type ``type``  ``lexeme``  ``literal?.string else ""``";
 }
 
 shared object tokenType {
     // Single Character Token
-    shared String  leftParent = "LEFT_PAREN";
-    shared String  rightParent = "RIGHT_PAREN";
-    shared String  leftBrace = "LEFT_BRACE";
-    shared String  rightBrace = "RIGTH_PAREN";
-    shared String  comma = "COMMA";
-    shared String  dot = "DOT";
-    shared String  minus = "MINUS";
-    shared String  plus = "PLUS";
-    shared String  semicolon = "SEMICOLON";
-    shared String  slash = "SLASH";
+    shared String leftParent = "LEFT_PAREN";
+    shared String rightParent = "RIGHT_PAREN";
+    shared String leftBrace = "LEFT_BRACE";
+    shared String rightBrace = "RIGTH_PAREN";
+    shared String comma = "COMMA";
+    shared String dot = "DOT";
+    shared String minus = "MINUS";
+    shared String plus = "PLUS";
+    shared String semicolon = "SEMICOLON";
+    shared String slash = "SLASH";
     shared String star = "STAR";
 
     // One or Two Characters Token

@@ -20,14 +20,13 @@ shared void run() {
         "Literal:Object val",
         "Unary:Token operator, Expr right"
     });
-    defineAst(outputDir,"Expr", types);
+    defineAst(outputDir, "Expr", types);
 }
-
 
 
 void defineAst(String? output, String baseName, LinkedList<String> types) {
 
-    value path = "``if(exists output) then output else ""``/``baseName``.ceylon";
+    value path = "``if (exists output) then output else ""``/``baseName``.ceylon";
     value printWritter = PrintWriter(path, "UTF-8");
     printWritter.println("import com.leo.celox {Token}");
     printWritter.println();
@@ -45,7 +44,7 @@ void defineAst(String? output, String baseName, LinkedList<String> types) {
 }
 
 void defineType(PrintWriter printWritter, String baseName, String? className, String? fields) {
-    printWritter.println( " shared class ``if(exists className) then className else " "
-    ``(``if(exists fields) then fields else " "``) extends ``baseName``() { }");
+    printWritter.println(" shared class ``if (exists className) then className else " "
+    ``(``if (exists fields) then fields else " "``) extends ``baseName``() { }");
     printWritter.println();
 }
