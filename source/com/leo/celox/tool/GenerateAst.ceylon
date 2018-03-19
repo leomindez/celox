@@ -11,7 +11,8 @@ import ceylon.collection {
 
 shared void run() {
 
-    value outputDir = "/Users/leo/Documents/ceylon/celox/source/com/leo/celox/tool";
+
+    value outputDir = process.arguments[0];
 
     value types = LinkedList<String>({
         "Binary:Expr left, Token operator, Expr right",
