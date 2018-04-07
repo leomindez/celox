@@ -15,6 +15,13 @@ import java.lang {
 import ceylon.buffer.charset {
     utf8
 }
+import com.leo.celox.tool {
+    Expr,
+    Literal,
+    Unary,
+    Binary,
+    Grouping
+}
 
 shared void run() {
     startCommands(*process.arguments);

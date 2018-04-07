@@ -1,4 +1,4 @@
-shared class Token(String type, String lexeme, Integer line, Object? literal = null) {
+shared class Token(shared String type, shared String lexeme, shared Integer line, shared Object? literal = null) {
     shared actual String string => "Type ``type``  ``lexeme``  ``literal?.string else ""``";
 }
 

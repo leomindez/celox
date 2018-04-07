@@ -17,7 +17,7 @@ shared void run() {
     value types = LinkedList<String>({
         "Binary:Expr left, Token operator, Expr right",
         "Grouping:Expr expression",
-        "Literal:Object val",
+        "Literal:Object? val",
         "Unary:Token operator, Expr right"
     });
     defineAst(outputDir, "Expr", types);
@@ -35,10 +35,8 @@ void defineAst(String? output, String baseName, LinkedList<String> types) {
     printWritter.println(" import com.leo.celox.tool { Visitor }");
     printWritter.println();
     printWritter.println(" shared abstract class ``baseName``() { ");
-
     printWritter.println(" shared formal Type accept<out Type>(Visitor<Type> visitor);");
-    printWritter.println();
-
+    printWritter.println(" }");
 
     for (value type in types) {
         value splitted = type.split((Character ch) => ch.equals(':'));
@@ -49,7 +47,6 @@ void defineAst(String? output, String baseName, LinkedList<String> types) {
 
     printWritter.println();
 
-    printWritter.println(" }");
     printWritter.println();
     printWritter.close();
 }
@@ -73,8 +70,9 @@ void defineVisitor(String? output, String baseName, LinkedList<String> types) {
 }
 
 void defineType(PrintWriter printWritter, String baseName, String? className, String? fields) {
+    printWritter.println();
     printWritter.println(" shared class ``if (exists className) then className else " "
-    ``(``if (exists fields) then fields else " "``) extends ``baseName``() {");
+    ``(shared ``if (exists fields) then fields else " "``) extends ``baseName``() {");
     printWritter.println();
     printWritter.println(" shared actual Type accept<Type>(Visitor<Type> visitor)  { return visitor.visit``if (exists className) then className else " "````baseName`` (this);}");
     printWritter.println(" }");
